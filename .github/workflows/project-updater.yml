@@ -66,6 +66,7 @@ jobs:
         if: steps.check-docs.outputs.coverage_below_threshold == 'true'
         uses: actions/github-script@v7
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const coverage = '${{ steps.check-docs.outputs.coverage_pct }}';
             const missingFiles = '${{ steps.check-docs.outputs.missing_files }}';
