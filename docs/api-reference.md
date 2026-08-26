@@ -1,12 +1,13 @@
 # API Reference
 <!-- Generado automáticamente por el Documentation Agent · No editar manualmente -->
-<!-- Última actualización: 2026-08-26 · Commit: b059c24 -->
+<!-- Última actualización: 2026-08-26 · Commit: af3ecc0 -->
 
 ## Visión general
 
 Módulos actualizados en este commit:
 
 - `src/app.py`
+- `src/auth/oauth_handler.py`
 
 ---
 
@@ -25,7 +26,31 @@ Retorna el estado de salud de la API.
 
 ### `get_version()` → `str`
 
+Retorna la versión de la API.
+
+---
+
+## `src/auth/oauth_handler.py`
+
+Módulo de autenticación OAuth 2.0
+Maneja tokens de acceso para los proveedores Google y GitHub.
+
+### Clase `OAuthHandler`
+
+Gestiona el ciclo de vida de tokens OAuth para usuarios autenticados.
+
+### `__init__(provider)`
+
 _Sin documentación._
+
+### `get_token(user_id)` → `str`
+
+Retorna un token válido para el usuario.
+Si existe un token en caché y no ha expirado, lo reutiliza.
+
+### `revoke_token(user_id)` → `bool`
+
+Revoca el token activo de un usuario. Retorna True si existía.
 
 ---
 
