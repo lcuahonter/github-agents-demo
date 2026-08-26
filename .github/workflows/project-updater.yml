@@ -23,10 +23,8 @@ jobs:
     steps:
       - name: Mover item en el board según el evento
         uses: actions/github-script@v7
-        env:
-          GH_TOKEN: ${{ secrets.GH_PROJECT_TOKEN }}
         with:
-          github-token: ${{ secrets.GH_PROJECT_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { context } = require('@actions/github');
             const event = context.eventName;
