@@ -26,11 +26,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { context } = require('@actions/github');
             const event = context.eventName;
-            const payload = context.payload;
 
-            // Mapeo de estados del board
             const statusMap = {
               'issue.opened':             'Todo',
               'issue.labeled.needs-docs': 'In Progress',
