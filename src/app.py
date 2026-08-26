@@ -27,3 +27,6 @@ def process_payment(amount: float, currency: str, user_id: str) -> dict:
 def health_check() -> dict:
     """Retorna el estado de salud de la API."""
     return {"status": "ok", "version": "2.1.0"}
+
+def get_version() -> str:
+    return '2.1.0'
