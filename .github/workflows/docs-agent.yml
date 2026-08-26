@@ -43,18 +43,12 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Instalar dependencias del script de docs
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          pip install openai==1.40.0 gitpython==3.1.43
-
-      - name: Generar documentación con Copilot
+      - name: Generar documentación
         if: steps.changed-files.outputs.any_changed == 'true'
         id: generate
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          GITHUB_SHA: ${{ github.sha }}
         run: |
           python .github/scripts/generate_docs.py
 
