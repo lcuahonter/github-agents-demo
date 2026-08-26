@@ -47,5 +47,5 @@ class OAuthHandler:
 
     def health_check(self) -> dict:
         """Retorna el estado de salud de la API."""
-        return {"status": "ok", "version": "2.1.2"}
+        return {"status": "ok", "version": "2.1.4"}
         
