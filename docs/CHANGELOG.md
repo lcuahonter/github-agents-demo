@@ -2,6 +2,14 @@
 <!-- Generado y mantenido automáticamente por el Documentation Agent -->
 <!-- Formato: https://keepachangelog.com/es -->
 
+## [2026-08-26] — commit `367eb7a`
+### Actualizado
+- feat: agregar función get_version al API
+
+_Generado por Documentation Agent · autor: Luz Cuahonte_
+
+---
+
 ## [2.1.0] - 2026-08-26
 ### Agregado
 - `health_check()` — nuevo endpoint para monitoreo de salud de la API
