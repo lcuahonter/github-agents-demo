@@ -45,7 +45,7 @@ class OAuthHandler:
         raw = f"{self.provider}:{user_id}:{time.time()}"
         return hashlib.sha256(raw.encode()).hexdigest()
 
-    def health_check(self) -> dict:
+    def health_check2(self) -> dict:
         """Retorna el estado de salud de la API."""
         return {"status": "ok", "version": "2.1.4"}
         
