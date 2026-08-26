@@ -1,6 +1,6 @@
 # API Reference
 <!-- Generado automáticamente por el Documentation Agent · No editar manualmente -->
-<!-- Última actualización: 2026-08-26 · Commit: af3ecc0 -->
+<!-- Última actualización: 2026-08-26 · Commit: 7ef8ee7 -->
 
 ## Visión general
 
@@ -51,6 +51,10 @@ Si existe un token en caché y no ha expirado, lo reutiliza.
 ### `revoke_token(user_id)` → `bool`
 
 Revoca el token activo de un usuario. Retorna True si existía.
+
+### `health_check()` → `dict`
+
+Retorna el estado de salud de la API.
 
 ---
 
