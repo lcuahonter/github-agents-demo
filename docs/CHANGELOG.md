@@ -2,6 +2,14 @@
 <!-- Generado y mantenido automáticamente por el Documentation Agent -->
 <!-- Formato: https://keepachangelog.com/es -->
 
+## [2026-08-26] — commit `a782d84`
+### Actualizado
+- feat: descripción
+
+_Generado por Documentation Agent · autor: Luz Cuahonte_
+
+---
+
 ## [2026-08-26] — commit `367eb7a`
 ### Actualizado
 - feat: agregar función get_version al API
