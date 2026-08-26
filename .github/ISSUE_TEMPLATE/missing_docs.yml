@@ -1,0 +1,56 @@
+name: 📄 Documentación Faltante
+description: Solicitar al agente que genere documentación para un módulo o función
+title: "docs: documentar [NOMBRE DEL MÓDULO]"
+labels:
+  - documentation
+  - needs-docs
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🤖 Agente de documentación
+        Al crear este issue con el label `needs-docs`, el agente de Copilot analizará el archivo indicado
+        y publicará automáticamente un borrador de documentación como comentario en este issue.
+
+  - type: input
+    id: file_path
+    attributes:
+      label: Archivo a documentar
+      description: Ruta relativa al archivo (ej. `src/auth/oauth_handler.py`)
+      placeholder: src/modulo/archivo.py
+    validations:
+      required: true
+
+  - type: dropdown
+    id: doc_type
+    attributes:
+      label: Tipo de documentación necesaria
+      options:
+        - API Reference (funciones/endpoints)
+        - Guía de uso (tutorial)
+        - Arquitectura (diagrama y explicación)
+        - Changelog (qué cambió)
+        - Todo lo anterior
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto adicional para el agente
+      description: ¿Qué hace este módulo? ¿Hay algo específico que el agente deba saber?
+      placeholder: Este módulo maneja la autenticación OAuth con los proveedores X e Y...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist previo
+      options:
+        - label: El archivo mencionado existe en el repo
+          required: true
+        - label: No existe documentación previa para este archivo (o está desactualizada)
+          required: true

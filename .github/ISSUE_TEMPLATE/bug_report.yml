@@ -1,0 +1,31 @@
+name: 🐛 Bug Report
+description: Reportar un error en el proyecto
+title: "bug: [descripción breve]"
+labels:
+  - bug
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción del bug
+      placeholder: Qué sucede vs. qué debería suceder
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducir
+      placeholder: |
+        1. Llamar a `función_x` con parámetro `y`
+        2. Ver el error...
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Entorno
+      placeholder: Python 3.12, Ubuntu 22.04
+    validations:
+      required: false

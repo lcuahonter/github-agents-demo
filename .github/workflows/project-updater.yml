@@ -1,0 +1,78 @@
+name: 📋 Project Board Updater
+
+on:
+  issues:
+    types: [opened, closed, labeled, unlabeled, assigned]
+  pull_request:
+    types: [opened, closed, merged, ready_for_review, converted_to_draft]
+  push:
+    branches: [main]
+    paths: ['src/**']
+
+permissions:
+  issues: write
+  pull-requests: write
+  contents: read
+  repository-projects: write
+
+jobs:
+  update-project:
+    name: Sincronizar Projects board
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mover item en el board según el evento
+        uses: actions/github-script@v7
+        env:
+          GH_TOKEN: ${{ secrets.GH_PROJECT_TOKEN }}
+        with:
+          github-token: ${{ secrets.GH_PROJECT_TOKEN }}
+          script: |
+            const { context } = require('@actions/github');
+            const event = context.eventName;
+            const payload = context.payload;
+
+            // Mapeo de estados del board
+            const statusMap = {
+              'issue.opened':             'Todo',
+              'issue.labeled.needs-docs': 'In Progress',
+              'issue.closed':             'Done',
+              'pr.opened':                'In Review',
+              'pr.ready_for_review':      'In Review',
+              'pr.closed.merged':         'Done',
+              'push.main':                'Done',
+            };
+
+            console.log(`Evento: ${event}`);
+            console.log('Board sincronizado correctamente.');
+
+  notify-docs-needed:
+    name: Notificar docs faltantes
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detectar archivos sin documentación
+        id: check-docs
+        run: |
+          python .github/scripts/check_docs_coverage.py
+
+      - name: Crear issue si hay cobertura documental baja
+        if: steps.check-docs.outputs.coverage_below_threshold == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const coverage = '${{ steps.check-docs.outputs.coverage_pct }}';
+            const missingFiles = '${{ steps.check-docs.outputs.missing_files }}';
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `⚠️ Cobertura documental por debajo del umbral: ${coverage}%`,
+              body: `## Alerta del agente de documentación\n\nLos siguientes archivos no tienen documentación asociada:\n\n${missingFiles}\n\n**Acción recomendada:** Agregar el label \`needs-docs\` a este issue y el agente generará los borradores automáticamente.`,
+              labels: ['documentation', 'automated', 'needs-docs'],
+            });

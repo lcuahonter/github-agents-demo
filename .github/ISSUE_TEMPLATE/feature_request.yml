@@ -1,0 +1,27 @@
+name: ✨ Feature Request
+description: Proponer una nueva funcionalidad
+title: "feat: [descripción breve]"
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema que resuelve
+      placeholder: Como [tipo de usuario], necesito [funcionalidad] para [beneficio]
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solución propuesta
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: docs
+    attributes:
+      label: Documentación
+      options:
+        - label: Este feature requiere documentación nueva (agregar label `needs-docs` cuando esté implementado)
