@@ -1,6 +1,6 @@
 # API Reference
 <!-- Generado automáticamente por el Documentation Agent · No editar manualmente -->
-<!-- Última actualización: 2026-08-26 · Commit: 7ef8ee7 -->
+<!-- Última actualización: 2026-08-26 · Commit: 3448c16 -->
 
 ## Visión general
 
