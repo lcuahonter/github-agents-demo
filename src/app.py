@@ -30,4 +30,4 @@ def health_check() -> dict:
 
 def get_version() -> str:
     """Retorna la versión de la API."""
-    return '2.1.3'
+    return '2.1.4'

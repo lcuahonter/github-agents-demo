@@ -44,4 +44,8 @@ class OAuthHandler:
         """Genera un token determinístico basado en user_id y timestamp."""
         raw = f"{self.provider}:{user_id}:{time.time()}"
         return hashlib.sha256(raw.encode()).hexdigest()
+
+    def health_check(self) -> dict:
+        """Retorna el estado de salud de la API."""
+        return {"status": "ok", "version": "2.1.2"}
         
