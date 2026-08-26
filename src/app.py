@@ -29,4 +29,5 @@ def health_check() -> dict:
     return {"status": "ok", "version": "2.1.2"}
 
 def get_version() -> str:
-    return '2.1.0'
+    """Retorna la versión de la API."""
+    return '2.1.3'
