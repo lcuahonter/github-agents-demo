@@ -57,18 +57,19 @@ def extract_module_docs(path: Path) -> str:
 
 
 def main():
-    changed = os.getenv("CHANGED_FILES", "")
     sha = os.getenv("GITHUB_SHA", "unknown")[:7]
     from datetime import date
     today = date.today().isoformat()
 
-    py_files = [
-        Path(f) for f in changed.split()
-        if f.endswith(".py") and Path(f).exists()
-    ]
+    # Always document all src/ Python files so coverage never drops
+    src_root = Path("src")
+    py_files = sorted(
+        f for f in src_root.rglob("*.py")
+        if f.exists() and not f.name.startswith("_")
+    ) if src_root.exists() else []
 
     if not py_files:
-        print("No hay archivos Python modificados. Nada que documentar.")
+        print("No hay archivos Python en src/. Nada que documentar.")
         sys.exit(0)
 
     docs_path = Path("docs/api-reference.md")
