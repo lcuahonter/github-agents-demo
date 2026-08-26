@@ -1,0 +1,40 @@
+name: 🤖 Issue Documentation Responder
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  respond-to-docs-request:
+    name: Generar borrador de documentación
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'needs-docs'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generar borrador de docs para el issue
+        id: draft
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+        run: |
+          python .github/scripts/respond_to_issue.py
+
+      - name: Comentar en el issue con el borrador
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('issue_comment.md', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
