@@ -35,3 +35,7 @@ def get_version() -> str:
 def list_currencies() -> list:
     """Retorna las monedas soportadas por la API. """
     return ["USD", "EUR", "MXN"]
+
+def list_paises() -> list:
+    """Retorna los paises soportados por la API. """
+    return ["MX", "US", "ES"]
