@@ -31,3 +31,7 @@ def health_check() -> dict:
 def get_version() -> str:
     """Retorna la versión de la API."""
     return '2.1.4'
+    
+def list_currencies() -> list:
+    """Retorna las monedas soportadas por la API."""
+    return ["USD", "EUR", "MXN"]
