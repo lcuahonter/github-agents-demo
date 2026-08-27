@@ -1,6 +1,6 @@
 # API Reference
 <!-- Generado automáticamente por el Documentation Agent · No editar manualmente -->
-<!-- Última actualización: 2026-08-27 · Commit: 6ecc290 -->
+<!-- Última actualización: 2026-08-27 · Commit: f91082e -->
 
 ## Visión general
 
@@ -31,6 +31,10 @@ Retorna la versión de la API.
 ### `list_currencies()` → `list`
 
 Retorna las monedas soportadas por la API. 
+
+### `list_paises()` → `list`
+
+Retorna los paises soportados por la API. 
 
 ---
 
