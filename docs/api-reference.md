@@ -1,6 +1,6 @@
 # API Reference
 <!-- Generado automáticamente por el Documentation Agent · No editar manualmente -->
-<!-- Última actualización: 2026-08-26 · Commit: 51c1dc0 -->
+<!-- Última actualización: 2026-08-27 · Commit: 6ecc290 -->
 
 ## Visión general
 
@@ -27,6 +27,10 @@ Retorna el estado de salud de la API.
 ### `get_version()` → `str`
 
 Retorna la versión de la API.
+
+### `list_currencies()` → `list`
+
+Retorna las monedas soportadas por la API. 
 
 ---
 
