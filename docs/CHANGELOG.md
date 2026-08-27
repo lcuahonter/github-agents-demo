@@ -2,6 +2,14 @@
 <!-- Generado y mantenido automáticamente por el Documentation Agent -->
 <!-- Formato: https://keepachangelog.com/es -->
 
+## [2026-08-26] — commit `6ecc290`
+### Actualizado
+- feat: descripción    Closes #15
+
+_Generado por Documentation Agent · autor: Luz Cuahonte_
+
+---
+
 ## [2026-08-26] — commit `51c1dc0`
 ### Actualizado
 - feat: descripción
