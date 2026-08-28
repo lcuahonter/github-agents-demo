@@ -1,6 +1,6 @@
 # API Reference
 <!-- Generado automáticamente por el Documentation Agent · No editar manualmente -->
-<!-- Última actualización: 2026-08-27 · Commit: f91082e -->
+<!-- Última actualización: 2026-08-28 · Commit: fb88492 -->
 
 ## Visión general
 
@@ -35,6 +35,10 @@ Retorna las monedas soportadas por la API.
 ### `list_paises()` → `list`
 
 Retorna los paises soportados por la API. 
+
+### `list_paises_bajo()` → `list`
+
+Retorna los paises de bajo riesgo soportados por la API. 
 
 ---
 
