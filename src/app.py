@@ -39,3 +39,6 @@ def list_currencies() -> list:
 def list_paises() -> list:
     """Retorna los paises soportados por la API. """
     return ["MX", "US", "ES"]
+def list_paises_bajo() -> list:
+    """Retorna los paises de bajo riesgo soportados por la API. """
+    return ["MX", "US", "ES"]
