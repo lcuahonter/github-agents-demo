@@ -45,3 +45,6 @@ def list_paises_bajo() -> list:
 def list_paises_europa() -> list:
     """Retorna los paises de Europa soportados por la API. """
     return ["ES", "FR", "DE"]
+def list_paises_america() -> list:
+    """Retorna los paises de América soportados por la API. """
+    return ["MX", "US", "BR"]
