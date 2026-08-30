@@ -1,6 +1,6 @@
 # API Reference
 <!-- Generado automáticamente por el Documentation Agent · No editar manualmente -->
-<!-- Última actualización: 2026-08-30 · Commit: 01a7413 -->
+<!-- Última actualización: 2026-08-30 · Commit: 028ed9f -->
 
 ## Visión general
 
@@ -47,6 +47,10 @@ Retorna los paises de Europa soportados por la API.
 ### `list_paises_america()` → `list`
 
 Retorna los paises de América soportados por la API. 
+
+### `list_paises_asia()` → `list`
+
+Retorna los paises de Asia soportados por la API. 
 
 ---
 
