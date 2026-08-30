@@ -1,6 +1,6 @@
 # API Reference
 <!-- Generado automáticamente por el Documentation Agent · No editar manualmente -->
-<!-- Última actualización: 2026-08-28 · Commit: fb88492 -->
+<!-- Última actualización: 2026-08-30 · Commit: 6bfbfb2 -->
 
 ## Visión general
 
@@ -39,6 +39,10 @@ Retorna los paises soportados por la API.
 ### `list_paises_bajo()` → `list`
 
 Retorna los paises de bajo riesgo soportados por la API. 
+
+### `list_paises_europa()` → `list`
+
+Retorna los paises de Europa soportados por la API. 
 
 ---
 
