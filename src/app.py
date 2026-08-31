@@ -51,3 +51,6 @@ def list_paises_america() -> list:
 def list_paises_asia() -> list:
     """Retorna los paises de Asia soportados por la API. """
     return ["CN", "JP", "IN"]
+def list_paises_africa () -> list:
+    """Retorna los paises de África soportados por la API. """
+    return ["ZA", "NG", "EG"]
